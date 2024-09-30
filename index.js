@@ -1,15 +1,14 @@
-// Variables
+// Choice options + userInput
 let options = ['rock', 'paper', 'scissors'];
 
+let userInput;
+
+// Score variables + max rounds
 let userScore = 0;
 let computerScore = 0;
 let draws = 0;
 
-let userInput;
-
-let userChoice = getUserChoice();
-let computerChoice = getComputerChoice();
-
+let roundNum = 1;
 let maxRounds = 5;
 
 // Helper function to alert score
@@ -27,7 +26,7 @@ function getComputerChoice () {
 function getUserChoice () {
 
     while (true) {
-        userInput = prompt('Choose one: rock, paper, scissors');
+        userInput = prompt(`Round #${roundNum}/${maxRounds} | Choose one: rock, paper, scissors`);
         
         if (options.includes(userInput.toLowerCase())) {
             return userInput.toLowerCase();
@@ -78,13 +77,13 @@ function playGame () {
 
     for (let i = 1; i <= maxRounds; i++) {
         playRound (getUserChoice(), getComputerChoice());
+        roundNum++;
 
         if (i >= maxRounds) {
-            alert(`Max rounds played!`)
-            alert(`Final score - ${announceScore()}`)
-            alert(`Results will be reset`)
+            alert(`Max rounds played! Results will be reset.`)
 
             userScore = computerScore = draws = 0;
+            roundNum = 1;
         }
     }
 
