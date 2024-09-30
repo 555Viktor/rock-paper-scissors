@@ -5,7 +5,7 @@ let userScore = 0;
 let computerScore = 0;
 let draws = 0;
 
-let userChoice = getUserChoice;
+let userChoice = getUserChoice();
 let computerChoice = getComputerChoice();
 
 function getComputerChoice () {
