@@ -1,4 +1,3 @@
-
 let options = ['rock', 'paper', 'scissors'];
 
 let userScore = 0;
@@ -21,7 +20,8 @@ function getComputerChoice () {
 }
 
 function getUserChoice () {
-    while(true) {
+
+    while (true) {
         userInput = prompt('Choose one: rock, paper, scissors');
         
         if (options.includes(userInput.toLowerCase())) {
@@ -30,37 +30,40 @@ function getUserChoice () {
             alert('Please select a valid value');
         }
     }
+
 }
 
 function playRound (userChoice, computerChoice) {
 
     if (userChoice === computerChoice) {
         draws++;
-        alert('Draw!');
+        alert(`Draw! \n${userChoice} vs. ${computerChoice}`);
         announceScore();
     } 
 
     else if (userChoice === 'rock' && computerChoice === 'scissors') {
         userScore++;
-        alert('Player wins!');
+        alert(`Player wins! \n${userChoice} vs. ${computerChoice}`);
         announceScore();
     } 
 
     else if (userChoice === 'paper' && computerChoice === 'rock') {
         userScore++;
-        alert('Player wins!');
+        alert(`Player wins! \n${userChoice} vs. ${computerChoice}`);
         announceScore();
     } 
 
     else if (userChoice === 'scissors' && computerChoice === 'paper') {
         userScore++;
-        alert('Player wins!');
+        alert(`Player wins! \n${userChoice} vs. ${computerChoice}`);
         announceScore();
     } 
     
     else {
         computerScore++;
-        alert('Computer wins!');
+        alert(`Computer wins! \n${userChoice} vs. ${computerChoice}`);
         announceScore();
     }
 }
+
+playRound(userChoice, computerChoice);
