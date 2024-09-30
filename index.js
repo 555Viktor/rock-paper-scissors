@@ -5,6 +5,9 @@ let userScore = 0;
 let computerScore = 0;
 let draws = 0;
 
+let userChoice = getUserChoice;
+let computerChoice = getComputerChoice();
+
 function getComputerChoice () {
     let randomIndex = Math.floor(Math.random() * options.length);
 
@@ -17,4 +20,4 @@ function getUserChoice () {
     return userInput.toLowerCase();
 }
 
-getUserChoice();
+
