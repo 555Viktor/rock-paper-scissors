@@ -6,3 +6,11 @@ function getComputerChoice () {
 
     return options[randomIndex];
 }
+
+function getUserChoice () {
+    let userInput = prompt('Choose one: rock, paper, scissors')
+
+    return userInput;
+}
+
+getUserChoice();
