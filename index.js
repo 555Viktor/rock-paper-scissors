@@ -1,6 +1,10 @@
 
 let options = ['rock', 'paper', 'scissors'];
 
+let userScore = 0;
+let computerScore = 0;
+let draws = 0;
+
 function getComputerChoice () {
     let randomIndex = Math.floor(Math.random() * options.length);
 
