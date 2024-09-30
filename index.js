@@ -1,3 +1,4 @@
+// Variables
 let options = ['rock', 'paper', 'scissors'];
 
 let userScore = 0;
@@ -9,10 +10,14 @@ let userInput;
 let userChoice = getUserChoice();
 let computerChoice = getComputerChoice();
 
+let maxRounds = 5;
+
+// Helper function to alert score
 function announceScore () {
     return alert(`Wins : ${userScore}, Losses : ${computerScore}, Draws : ${draws}`);
 }
 
+// Functions to get computer and user choice for game to start
 function getComputerChoice () {
     let randomIndex = Math.floor(Math.random() * options.length);
 
@@ -33,6 +38,7 @@ function getUserChoice () {
 
 }
 
+// Function to play 1 round
 function playRound (userSelect, computerSelect) {
 
     if (userSelect === computerSelect) {
@@ -66,4 +72,22 @@ function playRound (userSelect, computerSelect) {
     }
 }
 
-playRound(userChoice, computerChoice);
+// Function to play maxRounds
+
+function playGame () {
+
+    for (let i = 1; i <= maxRounds; i++) {
+        playRound (getUserChoice(), getComputerChoice());
+
+        if (i >= maxRounds) {
+            alert(`Max rounds played!`)
+            alert(`Final score - ${announceScore()}`)
+            alert(`Results will be reset`)
+
+            userScore = computerScore = draws = 0;
+        }
+    }
+
+}
+
+playGame()
