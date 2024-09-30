@@ -33,35 +33,35 @@ function getUserChoice () {
 
 }
 
-function playRound (userChoice, computerChoice) {
+function playRound (userSelect, computerSelect) {
 
-    if (userChoice === computerChoice) {
+    if (userSelect === computerSelect) {
         draws++;
-        alert(`Draw! \n${userChoice} vs. ${computerChoice}`);
+        alert(`Draw! \n${userSelect} vs. ${computerSelect}`);
         announceScore();
     } 
 
-    else if (userChoice === 'rock' && computerChoice === 'scissors') {
+    else if (userSelect === 'rock' && computerSelect === 'scissors') {
         userScore++;
-        alert(`Player wins! \n${userChoice} vs. ${computerChoice}`);
+        alert(`Player wins! \n${userSelect} vs. ${computerSelect}`);
         announceScore();
     } 
 
-    else if (userChoice === 'paper' && computerChoice === 'rock') {
+    else if (userSelect === 'paper' && computerSelect=== 'rock') {
         userScore++;
-        alert(`Player wins! \n${userChoice} vs. ${computerChoice}`);
+        alert(`Player wins! \n${userSelect} vs. ${computerSelect}`);
         announceScore();
     } 
 
-    else if (userChoice === 'scissors' && computerChoice === 'paper') {
+    else if (userSelect === 'scissors' && computerSelect === 'paper') {
         userScore++;
-        alert(`Player wins! \n${userChoice} vs. ${computerChoice}`);
+        alert(`Player wins! \n${userSelect} vs. ${computerSelect}`);
         announceScore();
     } 
     
     else {
         computerScore++;
-        alert(`Computer wins! \n${userChoice} vs. ${computerChoice}`);
+        alert(`Computer wins! \n${userSelect} vs. ${computerSelect}`);
         announceScore();
     }
 }
