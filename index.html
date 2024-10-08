@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock, Paper, Scissors</title>
+    <link rel="icon" type="image/x-icon" href="./images/rock-paper-scissors-favicon.png">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -19,27 +20,27 @@
             </div>
 
             <div class="game-container">    
-                        <img src="./images/paper-icon.png" alt="" id="playerChoiceImg">
-        
-                        <p>vs.</p>
-    
-                        <img src="./images/rock-icon.png" alt="" id="computerChoiceImg">
+                <img src="./images/question-mark-icon.png" alt="" class="default-img"  id="playerChoiceImg">
+
+                <p>vs.</p>
+
+                <img src="./images/question-mark-icon.png" alt="" class="default-img"  id="computerChoiceImg">
             </div>
 
             <div class="select-rps-container">
 
-                <button class="btnSelectRps">
-                    <img src="./images/rock-icon.png" alt="">
+                <button class="btnSelectRps" data-choice="rock">
+                    <img src="./images/rock-icon.png" class="choice-img" alt="">
                 </button>
 
-                <button class="btnSelectRps">
-                    <img src="./images/paper-icon.png" alt="">
+                <button class="btnSelectRps" data-choice="paper">
+                    <img src="./images/paper-icon.png" class="choice-img" alt="">
                 </button>
 
-                <button class="btnSelectRps">
-                    <img src="./images/scissors-icon.png" alt="">
+                <button class="btnSelectRps" data-choice="scissors">
+                    <img src="./images/scissors-icon.png" class="choice-img" alt="">
                 </button>
-
+                
             </div>
         </div>
 

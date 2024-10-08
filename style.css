@@ -36,7 +36,6 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-
     align-items: center;
 }
 .score-container {
@@ -71,8 +70,17 @@ body {
     cursor: pointer;
 }
 
-.select-rps-container img,
-.game-container img{
+.select-rps-container .choice-img {
     width: 80px;
+    height: 80px;
+}
+
+.display-choice-img {
+    width: 120px;
+    height: 120px;
+}
+
+.game-container .default-img {
+    width: 60px;
     height: 80px;
 }
