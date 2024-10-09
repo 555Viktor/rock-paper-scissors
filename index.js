@@ -1,10 +1,7 @@
 // DOM Elements
-
-let selectBtnsContainer = document.querySelector('.select-rps-container');
 let selectChoiceBtns = document.querySelectorAll('.btnSelectRps');
-let selectChoiceImgs = document.querySelectorAll('.choice-img');
 
-// Choice
+// Choice Imgs
 let playerChoiceImg = document.querySelector('#playerChoiceImg');
 let computerChoiceImg = document.querySelector('#computerChoiceImg')
 
@@ -27,23 +24,21 @@ const winPhrases = [
 ];
 
 const losePhrases = [
-    "The computer won this time.",
-    "You lose! Better luck next round.",
+    "The computer won.",
+    "Tough luck!",
     "The bot outplayed you!",
-    "Not this time! Keep trying!",
-    "The bot takes the win!"
+    "Not this time!",
+    "You can do better."
 ];
 
 const drawPhrases = [
-    "It's a draw! Let's try again.",
+    "It's a draw!",
     "A tie! Both played well.",
     "No winner this time.",
-    "It's a stalemate! Go again!",
+    "Stalemate!",
     "We have a draw!",
     "Draw! Great minds think alike."
 ];
-
-
 
 // Options
 let choicesArr = ['rock', 'paper', 'scissors'];
@@ -54,7 +49,6 @@ function getComputerChoice () {
     let randomNum = Math.floor(Math.random() * choicesArr.length);
     let computerChoice = choicesArr[randomNum];
 
-    displayComputerChoice(computerChoice)
     return computerChoice;
 }
 
@@ -79,33 +73,35 @@ function displayPlayerChoice (choice) {
 // Decide winner
 
 function decideWinner (playerChoice, computerChoice) {
-    
+    let winner;
+
     if(playerChoice === computerChoice) {
+        winner = null;
         scoreAnnouceHeader.textContent = getRandomPhrase(drawPhrases);
-        console.log('Draw!')
-    }
+    } 
     else if (playerChoice === 'rock' && computerChoice === 'scissors') {
+        winner = 'player';
         playerScore++;
         scoreAnnouceHeader.textContent = getRandomPhrase(winPhrases);
-        console.log('Player wins!')
     } else if (playerChoice === 'paper' && computerChoice === 'rock') {
+        winner = 'player';
         playerScore++;
         scoreAnnouceHeader.textContent = getRandomPhrase(winPhrases);
-        console.log('Player wins!')
     } else if (playerChoice === 'scissors' && computerChoice === 'paper') {
+        winner = 'player';
         playerScore++;
         scoreAnnouceHeader.textContent = getRandomPhrase(winPhrases);
-        console.log('Player wins!')
     } else {
+        winner = 'computer';
         computerScore++;
         scoreAnnouceHeader.textContent = getRandomPhrase(losePhrases);
-        console.log('Bot wins!')
     }
 
+    return winner;
 
 }
 
-function displayScores () {
+function displayScore () {
     playerScoreSpan.textContent = playerScore;
     computerScoreSpan.textContent = computerScore;
 }
@@ -114,9 +110,21 @@ function resetScore () {
     playerScore = 0;
     computerScore = 0;
     
-    displayScores()
+    displayScore()
 }
 
+// Track rounds func
+
+const maxRounds = 5;
+let elapsedRounds = 0;
+
+function trackElapsedRounds () {
+
+    if (elapsedRounds < maxRounds) {
+        elapsedRounds++;
+    }
+
+}
 // Get phrase
 
 function getRandomPhrase (arr) {
@@ -135,9 +143,13 @@ selectChoiceBtns.forEach(btn => {
 
         displayPlayerChoice(playerChoice);
         displayComputerChoice(computerChoice);
-        
-        decideWinner(playerChoice, computerChoice);
-        displayScores();
+
+        let winner = decideWinner(playerChoice, computerChoice);
+        displayScore();
+
+        if (winner) {
+            trackElapsedRounds()
+        }
         
     })
 })
