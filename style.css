@@ -7,7 +7,12 @@
     outline: none;
 }
 
+html {
+    touch-action: manipulation; /* Prevents double-tap zoom */
+}
+
 body {
+    overscroll-behavior: none; /* Prevents scrolling up and down */
     min-height: 100vh;
 
     display: flex;
